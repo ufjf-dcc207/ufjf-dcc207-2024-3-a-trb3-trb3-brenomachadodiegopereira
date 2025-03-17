@@ -84,4 +84,9 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  cursor: pointer;
+}
+
+.botao-novo-pokemon-container:hover{
+  background-color: #ffad14;
 }
