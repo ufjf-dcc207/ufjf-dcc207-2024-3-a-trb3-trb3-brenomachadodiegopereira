@@ -21,12 +21,12 @@ export default function Jogo() {
       setPokemon({
         nome: escolhido.name,
         imagem: escolhido.sprites.front_default,
-        tipos: escolhido.types.map((t: any) => t.type.name), 
+        tipos: escolhido.types.map((t: any) => t.type.name),
       });
       setTentativasRestantes(3); 
       setRevelado(false); 
       setMensagem('Quem é esse Pokémon?'); 
-      setErros(0); 
+      setErros(0);
     } catch (error) {
       console.error('Erro ao buscar Pokémon:', error);
     }
@@ -34,18 +34,18 @@ export default function Jogo() {
 
   const handlePalpiteCerto = () => {
     setMensagem(`Você acertou! É o ${pokemon?.nome}.`);
-    setTentativasRestantes(3); 
-    setRevelado(true); 
+    setTentativasRestantes(3);
+    setRevelado(true);
   };
 
   const handlePalpiteErrado = () => {
-    setTentativasRestantes((tentativas) => tentativas - 1);
+    setTentativasRestantes((tentativas) => tentativas - 1); 
     setErros((erros) => erros + 1); 
     if (tentativasRestantes > 1) {
       setMensagem('Tente novamente!');
     } else {
       setMensagem(`Você errou... Era o ${pokemon?.nome}.`);
-      setRevelado(true);
+      setRevelado(true); 
     }
   };
 
@@ -65,7 +65,7 @@ export default function Jogo() {
         onPalpiteCerto={handlePalpiteCerto}
         onPalpiteErrado={handlePalpiteErrado}
       />
-      <Tentativas tentativasRestantes={tentativasRestantes} nomePokemon={pokemon.nome} />
+      <Tentativas tentativasRestantes={tentativasRestantes} />
       <Mensagens mensagem={mensagem} />
       <Tipos tipos={pokemon.tipos} erros={erros} revelado={revelado} />
       <button onClick={pegaPokemon}>Novo Pokémon</button>

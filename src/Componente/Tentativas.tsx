@@ -1,12 +1,10 @@
 import './Tentativas.css';
 
 interface TentativasProps {
-  tentativasRestantes: number;
-  nomePokemon: string; 
+  tentativasRestantes: number; 
 }
 
-export default function Tentativas({ tentativasRestantes, nomePokemon }: TentativasProps) {
-  
+export default function Tentativas({ tentativasRestantes }: TentativasProps) {
   const esferas = [1, 2, 3];
 
   return (
@@ -19,9 +17,6 @@ export default function Tentativas({ tentativasRestantes, nomePokemon }: Tentati
           />
         ))}
       </div>
-      {tentativasRestantes === 0 && (
-        <p className="reveal">O Pokémon era: <strong>{nomePokemon}</strong></p>
-      )}
     </div>
   );
 }
