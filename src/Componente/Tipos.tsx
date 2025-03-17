@@ -19,8 +19,10 @@ export default function Tipos({ tipos, erros, revelado }: TiposProps) {
 
   return (
     <div className="tipos-container">
-      <div className="tipo">{getTipo(0)}</div>
-      <div className="tipo">{getTipo(1)}</div>
+      <div className='circulo'>
+        <div className="tipo">{getTipo(0)}</div>
+        <div className="tipo">{getTipo(1)}</div>
+      </div>
     </div>
   );
 }

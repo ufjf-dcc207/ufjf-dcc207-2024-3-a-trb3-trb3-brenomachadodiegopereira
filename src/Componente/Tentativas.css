@@ -1,18 +1,25 @@
 .tentativas {
-  text-align: center;
-  margin-top: 20px;
+  background-color: #d8d8c6;
+    padding: 15px;
+    border-radius: 10px;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .pokebolas {
   display: flex;
   justify-content: center;
   gap: 10px;
+  
 }
 
-.pokebola {
-  width: 40px; 
-  height: 40px; 
+.pokebola { 
+  width: 50px;
+  height: 50px;
   filter: brightness(1); 
+  border-radius: 50%;
 }
 
 .pokebola.preta {

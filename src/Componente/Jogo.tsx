@@ -57,22 +57,28 @@ export default function Jogo() {
   }
 
   return (
-    <div className="jogo">
-      <Pokemon nome={pokemon.nome} imagem={pokemon.imagem} revelado={revelado} />
-      <Palpite
-        nomePokemon={pokemon.nome}
-        onPalpiteCerto={handlePalpiteCerto}
-        onPalpiteErrado={handlePalpiteErrado}
-      />
-      <Tentativas tentativasRestantes={tentativasRestantes} />
-      <Mensagens mensagem={mensagem} />
-      <Tipos tipos={pokemon.tipos} erros={erros} revelado={revelado} />
-      <div className="botao-novo-pokemon-container" onClick={pegaPokemon}>
-        <img
-          src="/imagens/novo-pokemon.png" 
-          alt="Novo Pokémon"
-          className="botao-novo-pokemon"
-        />
+    <div className="container">
+      <div className='parte-esquerda'>
+        <Pokemon nome={pokemon.nome} imagem={pokemon.imagem} revelado={revelado} />
+        <div className='parte-esquerda-baixo'>
+          <Palpite
+            nomePokemon={pokemon.nome}
+            onPalpiteCerto={handlePalpiteCerto}
+            onPalpiteErrado={handlePalpiteErrado}
+          />
+          <div className="botao-novo-pokemon-container" onClick={pegaPokemon}>
+            <img
+              src="/imagens/novo-pokemon.png" 
+              alt="Novo Pokémon"
+              className="botao-novo-pokemon"
+            />
+          </div>
+        </div>
+      </div>
+      <div className='parte-direita'>
+        <Tipos tipos={pokemon.tipos} erros={erros} revelado={revelado} />
+        <Tentativas tentativasRestantes={tentativasRestantes} />
+        <Mensagens mensagem={mensagem} />
       </div>
     </div>
   );

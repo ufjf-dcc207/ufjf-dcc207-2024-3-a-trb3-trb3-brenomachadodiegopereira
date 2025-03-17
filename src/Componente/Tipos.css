@@ -1,21 +1,29 @@
 .tipos-container {
+    background-color: #d8d8c6; 
     display: flex;
-    gap: 10px;
     justify-content: center;
-    margin: 20px;
-    padding: 10px;
-    background-color: #ccc;
+    align-items: center;
+    height: 30%; 
+    padding: 15px;
     border-radius: 10px;
-  }
+}
   
-  .tipo {
+.circulo {
+    position: relative;
+    width: 80px; 
+    height: 80px; 
+    background-color: #b0b0b0; 
+    border-radius: 50%;
+}
+
+.tipo {
     width: 80px;
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #333;
     color: #fff;
     border-radius: 5px;
     font-size: 0.9em;
-  }
+    background-color: #333;
+}
