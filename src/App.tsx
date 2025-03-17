@@ -1,12 +1,9 @@
-import './App.css'
+import Pokemon from "./Componente/Pokemon";
 
-function App() {
-
+export default function App() {
   return (
-    <>
-      
-    </>
-  )
+    <div>
+      <Pokemon />
+    </div>
+  );
 }
-
-export default App
