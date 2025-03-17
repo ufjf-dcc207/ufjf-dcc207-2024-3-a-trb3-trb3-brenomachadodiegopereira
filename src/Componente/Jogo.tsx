@@ -1,52 +1,95 @@
-import { useState, useEffect } from 'react';
-import Pokemon from './Pokemon.tsx';
-import Palpite from './Palpite.tsx';
-import Tentativas from './Tentativas.tsx';
-import Mensagens from './Mensagens.tsx';
-import Tipos from './Tipos.tsx';
+import { useReducer, useEffect } from 'react';
+import Pokemon from './Pokemon';
+import Palpite from './Palpite';
+import Tentativas from './Tentativas';
+import Mensagens from './Mensagens';
+import Tipos from './Tipos';
 import './Jogo.css';
 
+type EstadoJogo = {
+  pokemon: { nome: string; imagem: string; tipos: string[] } | null;
+  tentativasRestantes: number;
+  revelado: boolean;
+  mensagem: string;
+  erros: number;
+};
+
+type AcaoJogo =
+  | { type: 'CARREGAR_POKEMON'; payload: { nome: string; imagem: string; tipos: string[] } } 
+  | { type: 'PALPITE_CERTO' }
+  | { type: 'PALPITE_ERRADO' }
+  | { type: 'REINICIAR_JOGO' };
+
+function reducer(state: EstadoJogo, action: AcaoJogo): EstadoJogo {
+  switch (action.type) {
+    case 'CARREGAR_POKEMON':
+      return {
+        ...state,
+        pokemon: action.payload,
+        tentativasRestantes: 3,
+        revelado: false,
+        mensagem: 'Quem é esse Pokémon?',
+        erros: 0,
+      };
+    case 'PALPITE_CERTO':
+      return {
+        ...state,
+        mensagem: `Você acertou! É o ${state.pokemon?.nome}.`,
+        revelado: true,
+      };
+    case 'PALPITE_ERRADO':
+      const novasTentativas = state.tentativasRestantes - 1;
+      return {
+        ...state,
+        tentativasRestantes: novasTentativas,
+        erros: state.erros + 1,
+        mensagem: novasTentativas > 0 ? 'Tente novamente!' : `Você errou... Era o ${state.pokemon?.nome}.`,
+        revelado: novasTentativas === 0,
+      };
+    case 'REINICIAR_JOGO':
+      return {
+        ...state,
+        tentativasRestantes: 3,
+        revelado: false,
+        mensagem: 'Quem é esse Pokémon?',
+        erros: 0,
+      };
+    default:
+      return state;
+  }
+}
+
 export default function Jogo() {
-  const [pokemon, setPokemon] = useState<{ nome: string; imagem: string; tipos: string[] } | null>(null);
-  const [tentativasRestantes, setTentativasRestantes] = useState(3); 
-  const [revelado, setRevelado] = useState(false); 
-  const [mensagem, setMensagem] = useState('Quem é esse Pokémon?');
-  const [erros, setErros] = useState(0); 
+  const [state, dispatch] = useReducer(reducer, {
+    pokemon: null,
+    tentativasRestantes: 3,
+    revelado: false,
+    mensagem: 'Quem é esse Pokémon?',
+    erros: 0,
+  });
+
+  const { pokemon, tentativasRestantes, revelado, mensagem, erros } = state;
 
   async function pegaPokemon() {
     try {
-      const idRandom = Math.floor(Math.random() * 151) + 1; 
+      const idRandom = Math.floor(Math.random() * 151) + 1;
       const resposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${idRandom}`);
       const escolhido = await resposta.json();
-      setPokemon({
-        nome: escolhido.name,
-        imagem: escolhido.sprites.front_default,
-        tipos: escolhido.types.map((t: any) => t.type.name), 
+      dispatch({
+        type: 'CARREGAR_POKEMON',
+        payload: {
+          nome: escolhido.name,
+          imagem: escolhido.sprites.front_default,
+          tipos: escolhido.types.map((t: any) => t.type.name),
+        },
       });
-      setTentativasRestantes(3); 
-      setRevelado(false); 
-      setMensagem('Quem é esse Pokémon?'); 
-      setErros(0); 
     } catch (error) {
       console.error('Erro ao buscar Pokémon:', error);
     }
   }
 
-  const handlePalpiteCerto = () => {
-    setMensagem(`Você acertou! É o ${pokemon?.nome}.`);
-    setRevelado(true); 
-  };
-
-  const handlePalpiteErrado = () => {
-    setTentativasRestantes((tentativas) => tentativas - 1); 
-    setErros((erros) => erros + 1); 
-    if (tentativasRestantes > 1) {
-      setMensagem('Tente novamente!');
-    } else {
-      setMensagem(`Você errou... Era o ${pokemon?.nome}.`);
-      setRevelado(true); 
-    }
-  };
+  const handlePalpiteCerto = () => dispatch({ type: 'PALPITE_CERTO' });
+  const handlePalpiteErrado = () => dispatch({ type: 'PALPITE_ERRADO' });
 
   useEffect(() => {
     pegaPokemon();
@@ -86,25 +129,19 @@ export default function Jogo() {
           </div>
         </div>
       </div>
-
-
-
       <div className="container-direita">
-
+ 
         <div className="container-direita-superior">
           <Tipos tipos={pokemon.tipos} erros={erros} revelado={revelado} />
         </div>
-
 
         <div className="container-direita-meio">
           <Tentativas tentativasRestantes={tentativasRestantes} />
         </div>
 
-
         <div className="container-direita-inferior">
           <Mensagens mensagem={mensagem} />
         </div>
-
       </div>
     </div>
   );
