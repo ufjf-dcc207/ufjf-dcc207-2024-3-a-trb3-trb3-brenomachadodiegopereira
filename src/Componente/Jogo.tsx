@@ -104,7 +104,7 @@ export default function Jogo() {
 
       <div className="container-esquerda">
         <img
-          src="/imagens/whos-that-pokemon.png"
+          src="/ufjf-dcc207-2024-3-a-trb3-trb3-brenomachadodiegopereira/imagens/whos-that-pokemon.png"
           alt="Who's That Pokémon?"
           className="imagem-titulo"
         />
@@ -122,7 +122,7 @@ export default function Jogo() {
           />
           <div className="botao-novo-pokemon-container" onClick={pegaPokemon}>
             <img
-              src="/imagens/novo-pokemon.png" 
+              src="/ufjf-dcc207-2024-3-a-trb3-trb3-brenomachadodiegopereira/imagens/novo-pokemon.png" 
               alt="Novo Pokémon"
               className="botao-novo-pokemon"
             />
