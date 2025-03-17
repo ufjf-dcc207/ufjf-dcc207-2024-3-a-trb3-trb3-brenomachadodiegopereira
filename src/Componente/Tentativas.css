@@ -1,20 +1,20 @@
-.pokemon {
+.tentativas {
   text-align: center;
-  margin: 20px;
+  margin-top: 20px;
 }
 
-.imagem-container {
-  position: relative;
-  display: inline-block;
+.pokebolas {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
-.imagem-container img {
-  width: 150px;
-  height: 150px;
-  border: 2px solid #333;
-  border-radius: 10px;
+.pokebola {
+  width: 40px; 
+  height: 40px; 
+  filter: brightness(1); 
 }
 
-.imagem-container img.silhueta {
-  filter: brightness(0); /* Transforma a imagem em preto */
+.pokebola.preta {
+  filter: brightness(0); 
 }

@@ -27,3 +27,7 @@
 .pokemon button:hover {
   background-color: #555;
 }
+
+.imagem-container img.silhueta {
+  filter: brightness(0); 
+}

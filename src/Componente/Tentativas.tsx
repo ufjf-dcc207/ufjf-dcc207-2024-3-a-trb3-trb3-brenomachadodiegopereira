@@ -5,15 +5,17 @@ interface TentativasProps {
 }
 
 export default function Tentativas({ tentativasRestantes }: TentativasProps) {
-  const esferas = [1, 2, 3];
+  const pokebolas = [1, 2, 3];
 
   return (
     <div className="tentativas">
-      <div className="esferas">
-        {esferas.map((esfera) => (
-          <div
-            key={esfera}
-            className={`esfera ${esfera <= 3 - tentativasRestantes ? 'preta' : 'vermelha'}`}
+      <div className="pokebolas">
+        {pokebolas.map((_, index) => (
+          <img
+            key={index}
+            src="/imagens/pokebola.png" 
+            alt="Pokébola"
+            className={`pokebola ${index < 3 - tentativasRestantes ? 'preta' : ''}`}
           />
         ))}
       </div>
