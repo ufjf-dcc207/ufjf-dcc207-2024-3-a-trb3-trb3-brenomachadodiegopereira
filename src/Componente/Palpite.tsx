@@ -19,13 +19,11 @@ export default function Palpite({ nomePokemon, onPalpiteCerto, onPalpiteErrado }
       onPalpiteCerto(); 
     } else {
       onPalpiteErrado(); 
-      alert('Ops, tente novamente!');
     }
 
     setPalpite('');
   };
 
-  
   useEffect(() => {
     setAcertou(false);
   }, [nomePokemon]);

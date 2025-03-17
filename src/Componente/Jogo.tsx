@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import Pokemon from './Pokemon';
 import Palpite from './Palpite';
 import Tentativas from './Tentativas';
+import Mensagens from './Mensagens';
 import './Jogo.css';
 
 export default function Jogo() {
   const [pokemon, setPokemon] = useState<{ nome: string; imagem: string } | null>(null);
   const [tentativasRestantes, setTentativasRestantes] = useState(3); 
   const [revelado, setRevelado] = useState(false); 
+  const [mensagem, setMensagem] = useState('Quem é esse Pokémon?'); 
 
   async function pegaPokemon() {
     try {
@@ -20,20 +22,24 @@ export default function Jogo() {
       });
       setTentativasRestantes(3); 
       setRevelado(false); 
+      setMensagem('Quem é esse Pokémon?'); 
     } catch (error) {
       console.error('Erro ao buscar Pokémon:', error);
     }
   }
 
   const handlePalpiteCerto = () => {
-    alert('Parabéns, você acertou!');
+    setMensagem(`Você acertou! É o ${pokemon?.nome}.`);
     setTentativasRestantes(3); 
     setRevelado(true); 
   };
 
   const handlePalpiteErrado = () => {
     setTentativasRestantes((tentativas) => tentativas - 1); 
-    if (tentativasRestantes === 1) {
+    if (tentativasRestantes > 1) {
+      setMensagem('Tente novamente!');
+    } else {
+      setMensagem(`Você errou... Era o ${pokemon?.nome}.`);
       setRevelado(true); 
     }
   };
@@ -55,6 +61,7 @@ export default function Jogo() {
         onPalpiteErrado={handlePalpiteErrado}
       />
       <Tentativas tentativasRestantes={tentativasRestantes} nomePokemon={pokemon.nome} />
+      <Mensagens mensagem={mensagem} />
       <button onClick={pegaPokemon}>Novo Pokémon</button>
     </div>
   );
