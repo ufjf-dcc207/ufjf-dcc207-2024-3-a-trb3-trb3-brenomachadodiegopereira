@@ -75,6 +75,7 @@ export default function Jogo() {
             nomePokemon={pokemon.nome}
             onPalpiteCerto={handlePalpiteCerto}
             onPalpiteErrado={handlePalpiteErrado}
+            tentativasRestantes={tentativasRestantes}
           />
           <div className="botao-novo-pokemon-container" onClick={pegaPokemon}>
             <img

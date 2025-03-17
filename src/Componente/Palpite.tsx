@@ -1,22 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState , useEffect , useRef } from 'react';
 import './Palpite.css';
 
 interface PalpiteProps {
-  nomePokemon: string; 
-  onPalpiteCerto: () => void; 
-  onPalpiteErrado: () => void; 
+  nomePokemon: string;
+  onPalpiteCerto: () => void;
+  onPalpiteErrado: () => void;
+  tentativasRestantes: number; 
 }
 
-export default function Palpite({ nomePokemon, onPalpiteCerto, onPalpiteErrado }: PalpiteProps) {
+export default function Palpite({ nomePokemon, onPalpiteCerto, onPalpiteErrado, tentativasRestantes }: PalpiteProps) {
   const [palpite, setPalpite] = useState(''); 
   const [acertou, setAcertou] = useState(false); 
+  const inputRef = useRef<HTMLInputElement>(null); 
 
   const verificaPokemon = (event: React.FormEvent) => {
-    event.preventDefault(); 
+    event.preventDefault();
 
     if (palpite.trim().toLowerCase() === nomePokemon.toLowerCase()) {
-      setAcertou(true); 
-      onPalpiteCerto(); 
+      setAcertou(true);
+      onPalpiteCerto();
     } else {
       onPalpiteErrado();
     }
@@ -25,17 +27,22 @@ export default function Palpite({ nomePokemon, onPalpiteCerto, onPalpiteErrado }
   };
 
   useEffect(() => {
-    setAcertou(false);
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
   }, [nomePokemon]);
+
+  const inputDesabilitado = acertou || tentativasRestantes === 0;
 
   return (
     <form onSubmit={verificaPokemon} className="palpite">
       <input
+        ref={inputRef} 
         type="text"
         value={palpite}
         onChange={(e) => setPalpite(e.target.value)}
         placeholder="Digite aqui..."
-        disabled={acertou} 
+        disabled={inputDesabilitado} 
       />
     </form>
   );
