@@ -2,38 +2,37 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    height: 100px;
-  }
-  
-  .esfera-tipos {
+    gap: 10px;
+    height: 50px;
+}
+
+.esfera-tipos {
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     background-color: #aba797;
     border-radius: 50%;
     z-index: 1;
-  }
-  
-  .tipo {
+}
+
+.tipo {
     z-index: 2;
     background-color: #2e2623;
     color: #efebe0;
-    border-radius: 15px;
-    font-size: 1.5em;
-    width: 150px;
-    height: 55px;
+    border-radius: 7px;
+    font-size: 0.75em;
+    width: 75px;
+    height: 27px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-  }
-  
-  .tipo:first-child {
-    margin-right: 25px;
-  }
-  
-  .tipo:last-child {
-    margin-left: 25px;
-  }
-  
+}
+
+.tipo:first-child {
+    margin-right: 12px;
+}
+
+.tipo:last-child {
+    margin-left: 12px;
+}

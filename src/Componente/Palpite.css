@@ -1,12 +1,12 @@
 .palpite input {
-  width: 300px;
-  height: 80px;
-  border-radius: 30px;
+  width: 150px;
+  height: 40px;
+  border-radius: 15px;
   border: none;
   color: #efebe0;
   background-color: #2e2623;
-  padding-left: 15px;
-  font-size: 22px;
+  padding-left: 7px;
+  font-size: 11px;
 
   &:focus {
     outline: none;
