@@ -16,3 +16,8 @@
 .jogo button:hover {
   background-color: #555;
 }
+
+.botao-novo-pokemon{
+  width: 40px;
+  height: 40px;
+}
