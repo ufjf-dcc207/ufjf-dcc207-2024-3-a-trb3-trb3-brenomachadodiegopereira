@@ -31,6 +31,10 @@ export default function Palpite({ nomePokemon, onPalpiteCerto, onPalpiteErrado, 
       inputRef.current.focus();
     }
   }, [nomePokemon]);
+  
+  useEffect(() => {
+    setAcertou(false);
+  }, [nomePokemon]);
 
   const inputDesabilitado = acertou || tentativasRestantes === 0;
 
