@@ -1,17 +1,16 @@
-import { useState , useEffect } from "react";
-import './Pokemon.css'
+import { useState, useEffect } from 'react';
+import './Pokemon.css';
+import Palpite from './Palpite.tsx';
 
-export default function Pokemon()
-{
-  const [pokemon, setPokemon ] = useState<{nome: string ; imagem: string } | null>(null);
+export default function Pokemon() {
+  const [pokemon, setPokemon] = useState<{ nome: string; imagem: string } | null>(null);
 
+  
   async function pegaPokemon() {
     try {
       const idRandom = Math.floor(Math.random() * 151) + 1; 
-      const resposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${idRandom}`);  
-
-      const escolhido = await resposta.json(); 
-      
+      const resposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${idRandom}`);
+      const escolhido = await resposta.json();
       setPokemon({
         nome: escolhido.name,
         imagem: escolhido.sprites.front_default,
@@ -26,15 +25,14 @@ export default function Pokemon()
   }, []);
 
   if (!pokemon) {
-    return <div>Procurando...</div>;
+    return <div>Carregando...</div>;
   }
 
   return (
     <div className="pokemon">
-      <h2>{pokemon.nome}</h2>
       <img src={pokemon.imagem} alt={pokemon.nome} />
+      <Palpite nomePokemon={pokemon.nome} onPalpiteCerto={() => alert('Parabéns, você acertou!')} />
       <button onClick={pegaPokemon}>Novo Pokémon</button>
     </div>
   );
-
 }
