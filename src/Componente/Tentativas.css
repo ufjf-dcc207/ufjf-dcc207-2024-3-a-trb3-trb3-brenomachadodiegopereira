@@ -1,0 +1,30 @@
+.tentativas {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .esferas {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .esfera {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+  
+  .esfera.vermelha {
+    background-color: red;
+  }
+  
+  .esfera.preta {
+    background-color: black;
+  }
+  
+  .reveal {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #333;
+  }

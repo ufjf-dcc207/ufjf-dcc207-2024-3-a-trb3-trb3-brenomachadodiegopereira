@@ -1,18 +1,18 @@
 .jogo {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .jogo button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .jogo button:hover {
-    background-color: #555;
-  }
+  text-align: center;
+  padding: 20px;
+}
+
+.jogo button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.jogo button:hover {
+  background-color: #555;
+}

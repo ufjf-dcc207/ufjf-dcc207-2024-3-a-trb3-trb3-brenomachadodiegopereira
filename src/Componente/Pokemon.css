@@ -1,29 +1,29 @@
 .pokemon {
-    text-align: center;
-    margin: 20px;
-  }
-  
-  .pokemon img {
-    width: 150px;
-    height: 150px;
-    border: 2px solid #333;
-    border-radius: 10px;
-  }
-  
-  .pokemon h2 {
-    text-transform: capitalize; 
-  }
-  
-  .pokemon button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .pokemon button:hover {
-    background-color: #555;
-  }
+  text-align: center;
+  margin: 20px;
+}
+
+.pokemon img {
+  width: 150px;
+  height: 150px;
+  border: 2px solid #333;
+  border-radius: 10px;
+}
+
+.pokemon h2 {
+  text-transform: capitalize; 
+}
+
+.pokemon button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pokemon button:hover {
+  background-color: #555;
+}
