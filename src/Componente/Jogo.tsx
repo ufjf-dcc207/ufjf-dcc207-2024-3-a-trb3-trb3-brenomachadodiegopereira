@@ -8,7 +8,7 @@ export default function Jogo() {
 
   async function pegaPokemon() {
     try {
-      const idRandom = Math.floor(Math.random() * 151) + 1; // IDs de 1 a 151
+      const idRandom = Math.floor(Math.random() * 151) + 1; 
       const resposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${idRandom}`);
       const escolhido = await resposta.json();
       setPokemon({

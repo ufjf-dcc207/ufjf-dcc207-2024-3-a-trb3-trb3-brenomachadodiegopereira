@@ -3,14 +3,13 @@ import './Palpite.css';
 
 interface PalpiteProps {
   nomePokemon: string; 
-  onPalpiteCerto: () => void; 
+  onPalpiteCerto: () => void;
 }
 
 export default function Palpite({ nomePokemon, onPalpiteCerto }: PalpiteProps) {
   const [palpite, setPalpite] = useState(''); 
   const [acertou, setAcertou] = useState(false); 
 
-  
   const verificaPokemon = (event: React.FormEvent) => {
     event.preventDefault(); 
 
@@ -21,11 +20,9 @@ export default function Palpite({ nomePokemon, onPalpiteCerto }: PalpiteProps) {
       alert('Ops, tente novamente!');
     }
 
-    
     setPalpite('');
   };
 
-  
   useEffect(() => {
     setAcertou(false);
   }, [nomePokemon]);

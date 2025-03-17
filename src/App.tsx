@@ -1,9 +1,9 @@
-import Pokemon from "./Componente/Pokemon";
+import Jogo from "./Componente/Jogo";
 
 export default function App() {
   return (
     <div>
-      <Pokemon />
+      <Jogo />
     </div>
   );
 }
