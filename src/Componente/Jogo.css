@@ -1,43 +1,88 @@
-.container {
+.container-geral {
+    display: grid;
+    grid-template-columns: 3fr 4fr;
+    width: 1200px;
+    height: 800px;
+    background-color: #efebe0;
+    border-radius: 30px;
+    overflow: hidden;
+    padding: 40px;
+    gap: 30px;
+  }
+  
+  .container-esquerda {
+    background-color: #e8423b;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 40px 0;
+    align-items: center;
+    border-radius: 30px;
+  }
+  
+  .container-direita {
+    display: grid;
+    grid-template-rows: 2fr 2fr 1fr;
+    gap: 30px;
+  }
+  
+  .container-direita-superior,
+  .container-direita-meio {
+    background-color: #d8d8c6;
+    border-radius: 30px;
     display: flex;
     justify-content: center;
-    background-color: #efebe0;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    gap: 20px;
-    width: 700px;
-}
-
-.parte-esquerda {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 310px;
-    background-color: #f5604b;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.parte-esquerda-baixo {
+  }
+  
+  .container-direita-inferior {
+    background-color: #edb141;
+    border-radius: 30px;
     display: flex;
-}
-
-.botao-novo-pokemon{
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .imagem-titulo {
+    width: 400px;
+    height: auto;
+  }
+  
+  .botao-novo-pokemon {
     width: 40px;
     height: 40px;
-    padding: 5px;
-    background-color: #edb141;
-    border: none;
-    border-radius: 50px;
-    color: white;
-    cursor: pointer;
-}
-
-.parte-direita {
+  }
+  
+  .esfera-branca {
     display: flex;
-    flex-direction: column;
-    width: 310px;
-    margin-left: 10px;
-    gap: 20px;
-}
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  
+  .pokemon-container {
+    display: flex;
+    align-items: center;
+    height: 260px;
+  }
+  
+  .input-botao-container {
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .botao-novo-pokemon-container {
+    width: 70px;
+    height: 70px;
+    background-color: #edb141;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  

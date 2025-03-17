@@ -18,7 +18,7 @@ export default function Palpite({ nomePokemon, onPalpiteCerto, onPalpiteErrado }
       setAcertou(true); 
       onPalpiteCerto(); 
     } else {
-      onPalpiteErrado(); 
+      onPalpiteErrado();
     }
 
     setPalpite('');
@@ -34,7 +34,7 @@ export default function Palpite({ nomePokemon, onPalpiteCerto, onPalpiteErrado }
         type="text"
         value={palpite}
         onChange={(e) => setPalpite(e.target.value)}
-        placeholder="Digite o nome do Pokémon..."
+        placeholder="Digite aqui..."
         disabled={acertou} 
       />
     </form>

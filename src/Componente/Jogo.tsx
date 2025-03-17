@@ -57,10 +57,20 @@ export default function Jogo() {
   }
 
   return (
-    <div className="container">
-      <div className='parte-esquerda'>
-        <Pokemon nome={pokemon.nome} imagem={pokemon.imagem} revelado={revelado} />
-        <div className='parte-esquerda-baixo'>
+    <div className="container-geral">
+
+      <div className="container-esquerda">
+        <img
+          src="/imagens/whos-that-pokemon.png"
+          alt="Who's That Pokémon?"
+          className="imagem-titulo"
+        />
+        <div className="pokemon-container">
+          <div className="esfera-branca">
+          <Pokemon nome={pokemon.nome} imagem={pokemon.imagem} revelado={revelado} />
+          </div>
+        </div>
+        <div className="input-botao-container">
           <Palpite
             nomePokemon={pokemon.nome}
             onPalpiteCerto={handlePalpiteCerto}
@@ -75,10 +85,25 @@ export default function Jogo() {
           </div>
         </div>
       </div>
-      <div className='parte-direita'>
-        <Tipos tipos={pokemon.tipos} erros={erros} revelado={revelado} />
-        <Tentativas tentativasRestantes={tentativasRestantes} />
-        <Mensagens mensagem={mensagem} />
+
+
+
+      <div className="container-direita">
+
+        <div className="container-direita-superior">
+          <Tipos tipos={pokemon.tipos} erros={erros} revelado={revelado} />
+        </div>
+
+
+        <div className="container-direita-meio">
+          <Tentativas tentativasRestantes={tentativasRestantes} />
+        </div>
+
+
+        <div className="container-direita-inferior">
+          <Mensagens mensagem={mensagem} />
+        </div>
+
       </div>
     </div>
   );

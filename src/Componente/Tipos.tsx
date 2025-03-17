@@ -1,7 +1,7 @@
 import './Tipos.css';
 
 interface TiposProps {
-  tipos: string[];
+  tipos: string[]; 
   erros: number; 
   revelado: boolean; 
 }
@@ -19,10 +19,10 @@ export default function Tipos({ tipos, erros, revelado }: TiposProps) {
 
   return (
     <div className="tipos-container">
-      <div className='circulo'>
-        <div className="tipo">{getTipo(0)}</div>
-        <div className="tipo">{getTipo(1)}</div>
-      </div>
+      <div className="esfera-tipos"></div>
+
+      <div className="tipo">{getTipo(0)}</div>
+      <div className="tipo">{getTipo(1)}</div>
     </div>
   );
 }
