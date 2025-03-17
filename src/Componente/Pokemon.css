@@ -1,0 +1,15 @@
+.pokemon {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .pokemon img {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #333;
+    border-radius: 10px;
+  }
+  
+  .pokemon h2 {
+    text-transform: capitalize;
+  }
